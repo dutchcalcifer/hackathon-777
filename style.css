@@ -54,7 +54,6 @@
       height: 10vmin;
       transform-style: preserve-3d;
       transform: perspective(100vw);
-      animation: spin 5s var(--delay);
     }
 
     li {
@@ -106,12 +105,13 @@
       position: absolute;
 
       transform-origin: bottom;
-      transition: 1s;
 
       transform: perspective(40em) rotateX(0deg);
 
       transform-style: preserve-3d;
       border-radius: 5px;
+
+      animation: spin-stick 1s forwards;
     }
 
     & .stick::after {
@@ -129,18 +129,16 @@
 
       translate: 0 -2em;
 
-      transition: 1s;
+      animation: spin-stick-after 1s forwards;
     }
   }
 
   .handle:active .stick {
-    /*   rotate:x 60deg; */
-
-    transform: perspective(40em) rotateX(-60deg);
+    animation: none;
   }
 
   & .handle:active .stick::after {
-    transform: rotateX(60deg);
+    animation: none;
   }
 }
 
@@ -150,5 +148,23 @@
   }
   to {
     transform: perspective(100vw) rotateX(-1080deg);
+  }
+}
+
+@keyframes spin-stick {
+  0%, 100% {
+    transform: perspective(40em) rotateX(0deg);
+  }
+  40%, 60% {
+    transform: perspective(40em) rotateX(-60deg);
+  }
+}
+
+@keyframes spin-stick-after {
+  0%, 100% {
+    transform: none;
+  }
+  40%, 60% {
+    transform: rotateX(60deg);
   }
 }
