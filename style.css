@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-body {
-    background-color: rgb(203, 203, 203);
-}
-
 /* ---------------- SLOTMACHINE ---------------- */
 
 section:nth-of-type(1) {
@@ -43,26 +39,49 @@ section:nth-of-type(2) {
 
         height: 200px;
         width: 600px;
-        background-color: white; 
+        background-image: radial-gradient(
+        at 0% 60%,
+        transparent 20%,
+        #161006 70%
+      ),
+      linear-gradient(
+        -20deg in oklch,
+        transparent 15%,
+        #0088ff,
+        transparent 85%
+      ),
+      radial-gradient(
+        circle at 10% 40%,
+        transparent 00%,
+        rgb(2, 2, 22) 60%
+      ),
+      
+      linear-gradient(
+        150deg in oklch,
+        #7a00e5,
+        #e51818,
+        #7a00e5 90%,
+        transparent
+      );
 
         border-radius: 50% 50% 0 0;
         padding: 10px;
-        border: solid black 60px; 
+        border: solid rgb(22, 22, 22) 60px; 
 
         & h2 {
-            color: black;
+            color: transparent;
 
-            font-family: "rafaella", sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             font-weight: 700;
-            font-style: normal;
-            font-size: 4em;
+            font-size: 8em;
+            -webkit-text-stroke: 3px rgba(255, 255, 255, 0.7);
 
         }
     }
 
     slotmachine {
 
-        background-color: black;
+        background-color: rgb(22, 22, 22);
         width: 740px;
         height: 600px;
         position: relative;
@@ -80,26 +99,73 @@ section:nth-of-type(2) {
             }
         }
 
+        & .handle {
+            display: grid;
+            justify-items: center;
+            align-items: center;
 
+            position: absolute;
+            top: -50px;
+            left:calc(100%);  
+            width: 100px;
+            height: 350px;
+    
+            border-radius: 0px 10px 10px 0px;
+            border: none;
+    
+            background-image: linear-gradient(maroon, rgb(88, 1, 1));
+
+            & .stick {
+                display:grid;
+                justify-items:center;
+                
+                padding: 0;
+                
+                width:2em;
+                height:12em;
+                background-image:linear-gradient(darkgrey, grey);
+                
+                position:absolute;
+                
+                transform-origin:bottom;
+                transition:1s;
+                
+                transform:
+                    perspective(40em)
+                    rotateX(0deg);
+                
+                transform-style:preserve-3d;
+                border-radius: 5px;
+            }
+
+            & .stick::after {
+                content:"";
+                position:absolute;
+                width:4em;
+                height:4em;
+                border-radius:50%;
+                background-image:radial-gradient(at 33% 33%, white, rgb(202, 153, 20) 50%);
+                
+                translate:0 -2em;
+                
+                transition:1s;
+            }
+        }
+
+        .handle:active .stick {
+            /*   rotate:x 60deg; */
+              
+              transform:
+                perspective(40em)
+                rotateX(-60deg);
+        }
+
+        & .handle:active .stick::after{
+            transform:
+            rotateX(60deg);
+        }
 
     }
-
-    slotmachine::after {
-        content: "";
-
-        display: block;
-        position: absolute;
-        top: -50px;
-        right: -50px;
-        width: 50px;
-        height: 300px;
-
-        border-radius: 0px 10px 10px 0px;
-
-        background-color: blueviolet;
-
-    }
-
 }
 
 
