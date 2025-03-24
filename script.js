@@ -1,57 +1,44 @@
-//ul --quantity
-// li --position n 
+fetchData("https://fdnd.directus.app/items/women_in_tech").then((data) => {
+  const getWinningPerson = () => {
+    const isWinning = Math.random() < 0.5;
+    return isWinning ? getRandomPerson(data.length) : null;
+  };
 
-const ul = document.querySelectorAll("ul")
+  const getRandomPerson = (arrayLength) =>
+    Math.floor(Math.random() * arrayLength);
 
-const url = "https://fdnd.directus.app/items/women_in_tech"
-fetchData(url).then(data => {
+  const get9RandomPeople = (arrayLength) => {
+    const numbers = new Set();
 
-
-
-// start the spin
-    const winning = isWinning()
-    let winningNumber = 0
-    if (winning) {
-        winningNumber = getRandomPerson(data.length)
+    while (numbers.size < 9) {
+      numbers.add(Math.floor(Math.random() * arrayLength));
     }
 
-    ul.forEach((row) => {
-        row.style.setProperty("--quantity", 10)
-        const li = row.children
-        li[0].style.setProperty("--position", 1)
+    return Array.from(numbers);
+  };
 
-        // first slot
-        if (winning) {
-            li[0].children[0].src = `https://fdnd.directus.app/assets/${data[winningNumber].image}`
-        } else {
-            li[0].children[0].src = `https://fdnd.directus.app/assets/${data[getRandomPerson(data.length)].image}`
-        }
+  const winningPerson = getWinningPerson();
 
-        // the other 9 slots
-        const otherSlots = get9People(data.length)
-        for (let i = 1; i < 10; i++) {
-            const imgSRC = data[otherSlots[i-1]].image
-            li[i].children[0].src = `https://fdnd.directus.app/assets/${imgSRC}`
+  document.querySelectorAll("ul").forEach((row) => {
+    row.style.setProperty("--quantity", 10);
 
-            li[i].style.setProperty("--position", i + 1)
-        }
-    })
-})
+    const li = row.children;
+    li[0].style.setProperty("--position", 1);
 
-function getRandomPerson(arrayLength) {
-    return Math.floor(Math.random() * arrayLength)
-}
-
-function get9People(arrayLength) {
-    const numbers = new Set(); // Using a Set to ensure uniqueness
-
-    while (numbers.size < 10) {
-        numbers.add(Math.floor(Math.random() * arrayLength)); // Random number between 0 and 49
+    if (winningPerson !== null) {
+      li[0].children[0].src = `https://fdnd.directus.app/assets/${data[winningPerson].image}`;
+    } else {
+      li[0].children[0].src = `https://fdnd.directus.app/assets/${
+        data[getRandomPerson(data.length)].image
+      }`;
     }
 
-    return Array.from(numbers); // Convert Set to an array
-}
+    const otherSlots = get9RandomPeople(data.length);
+    for (let i = 1; i < 10; i++) {
+      const imgSRC = data[otherSlots[i - 1]].image;
+      li[i].children[0].src = `https://fdnd.directus.app/assets/${imgSRC}`;
 
-function isWinning() {
-    return Math.random() < 0.5;
-}
+      li[i].style.setProperty("--position", i + 1);
+    }
+  });
+});
