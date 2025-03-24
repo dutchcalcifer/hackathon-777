@@ -6,116 +6,80 @@
   padding: 0;
 }
 
-div {
-  display: flex;
-  gap: 10dvmin;
-  height: 60dvh;
-  justify-content: center;
-  align-items: center;
-}
-
-ul {
-  width: 10vmin;
-  height: 10vmin;
-  transform-style: preserve-3d;
-  transform: perspective(100vw);
-  animation: autoRun 5s var(--delay);
-}
-
-li {
-  width: 10vmin;
-  height: 10vmin;
-  background-color: black;
-  position: absolute;
-  inset: 0 0 0 0;
-  transform: rotateX(
-      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
-    )
-    translateZ(20vmin);
-  list-style: none;
-  backface-visibility: hidden;
-
-  img {
-    width: 10vmin;
-    height: 10vmin;
-  }
-}
-
-@keyframes autoRun {
-  from {
-    transform: perspective(100vw) rotateX(0deg);
-  }
-  to {
-    transform: perspective(100vw) rotateX(-1080deg);
-  }
-}
-
-section:nth-of-type(1) {
+.title {
   display: flex;
   justify-content: center;
 
   h1 {
     font-family: "rafaella-shadow", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-
-    font-size: 5em;
+    font-size: 8vmin;
     color: rgb(29, 11, 72);
-  }
-
-  p {
-    display: none;
   }
 }
 
-section:nth-of-type(2) {
+.slots {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
 
-  topstuk {
+  div:first-of-type {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    height: 200px;
-    width: 600px;
-    background-color: white;
-
+    height: 20vmin;
+    width: 60vmin;
     border-radius: 50% 50% 0 0;
-    padding: 10px;
-    border: solid black 60px;
+    border: solid black 5vmin;
 
     & h2 {
-      color: black;
-
       font-family: "rafaella", sans-serif;
-      font-weight: 700;
-      font-style: normal;
-      font-size: 4em;
+      font-size: 4vmin;
     }
   }
 
-  slotmachine {
+  div:last-of-type {
+    justify-content: space-between;
     background-color: black;
-    width: 740px;
-    height: 600px;
-    position: relative;
+    width: 60vmin;
+    padding: 0 5vmin;
+    display: flex;
+    height: 50vmin;
+    align-items: center;
+
+    ul {
+      width: 10vmin;
+      height: 10vmin;
+      transform-style: preserve-3d;
+      transform: perspective(100vw);
+      animation: spin 5s var(--delay);
+    }
+
+    li {
+      width: 10vmin;
+      height: 10vmin;
+      background-color: black;
+      position: absolute;
+      inset: 0 0 0 0;
+      transform: rotateX(
+          calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+        )
+        translateZ(20vmin);
+      list-style: none;
+      backface-visibility: hidden;
+
+      img {
+        width: 10vmin;
+        height: 10vmin;
+      }
+    }
   }
+}
 
-  slotmachine::after {
-    content: "";
-
-    display: block;
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 50px;
-    height: 300px;
-
-    border-radius: 0px 10px 10px 0px;
-
-    background-color: blueviolet;
+@keyframes spin {
+  from {
+    transform: perspective(100vw) rotateX(0deg);
+  }
+  to {
+    transform: perspective(100vw) rotateX(-1080deg);
   }
 }
