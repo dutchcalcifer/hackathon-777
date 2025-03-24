@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  display: flex;
+  gap: 10dvw;
+  width: 100dvw;
+  height: 100dvh;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  width: 10vmin;
+  height: 10vmin;
+  transform-style: preserve-3d;
+  transform: perspective(100vw);
+  animation: autoRun 5s infinite var(--delay);
+}
+
+li {
+  width: 10vmin;
+  height: 10vmin;
+  background-color: black;
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateX(
+      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+    )
+    translateZ(40vmin);
+  list-style: none;
+  backface-visibility: hidden;
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(100vw) rotateX(0deg);
+  }
+  to {
+    transform: perspective(100vw) rotateX(-1080deg);
+  }
+}
