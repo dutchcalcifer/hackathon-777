@@ -50,3 +50,96 @@ li {
     transform: perspective(100vw) rotateX(-1080deg);
   }
 }
+
+section:nth-of-type(1) {
+
+    display: flex;
+    justify-content: center;
+
+    h1 {
+        font-family: "rafaella-shadow", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    
+        font-size: 5em;
+        color: rgb(29, 11, 72);
+    }
+
+    p {
+        display: none;
+    }
+
+}
+
+section:nth-of-type(2) {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    topstuk {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 200px;
+        width: 600px;
+        background-color: white; 
+
+        border-radius: 50% 50% 0 0;
+        padding: 10px;
+        border: solid black 60px; 
+
+        & h2 {
+            color: black;
+
+            font-family: "rafaella", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 4em;
+
+        }
+    }
+
+    slotmachine {
+
+        background-color: black;
+        width: 740px;
+        height: 600px;
+        position: relative;
+        
+        & div {
+            padding: 200px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            & ul {
+                background-color: pink;
+                width: 80px;
+                height: 300px;
+            }
+        }
+
+
+
+    }
+
+    slotmachine::after {
+        content: "";
+
+        display: block;
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 50px;
+        height: 300px;
+
+        border-radius: 0px 10px 10px 0px;
+
+        background-color: blueviolet;
+
+    }
+
+}
