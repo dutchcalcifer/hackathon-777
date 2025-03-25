@@ -6,17 +6,141 @@
   padding: 0;
 }
 
+body {
+  /* background-image: linear-gradient( to top, #f5f5f5 0 80%, rgb(255, 255, 255) 80% 100%); */
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgb(32, 34, 119), rgb(1, 1, 33));
+}
+
 .title {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.title div:nth-child(1){
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  /* clip-path: polygon(50% 24%, 100% 50%, 50% 82%, 0% 50%); */
+
+  clip-path: polygon(50% 24%, 100% 50%, 50% 82%, 0% 50%);
+
+  /* border: 5px rgb(0, 0, 0) solid; */
+
+  padding: 100px;
+  padding-top: 150px;
+  /* border-top: red 1px solid;
+  border-bottom: red 1px solid; */
+  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-left: 10%;
+  margin-right: 10%;
+  /* width: 800px; */
+  height: 400px;
+  width: 90vmin;
+}
+
+
+.title div:nth-child(2) {
+  margin-top: -20px;
+  position: absolute;
+  display: inline-block;
+  /* top: -40px; */
+  z-index: -20;
+  width: 95vmin;
+  height: 60%;
+  clip-path: polygon(50% 24%, 100% 50%, 50% 82%, 0% 50%);
+}
+
+
+/* Use these custom variables... */
+:root {
+  --polka-bg-image:
+    radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%),
+    radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%);
+  --polka-bg-position: 0px 0px, 20px 20px;
+  --polka-bg-size: 40px 40px;
+  --polka-bg-color: rgb(34, 34, 34);
+}
+
+/* ...or add this class to an element */
+.polka {
+  background-image: 
+    radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%),
+    radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%);
+  background-position: 0px 0px, 20px 20px;
+  background-size: 40px 40px;
+  background-color: rgb(34, 34, 34);
+}
+
 
   h1 {
-    font-family: "itc-avant-garde-gothic-pro", sans-serif;
-    font-weight: 500;
+    font-family: "adventures-unlimited", sans-serif;
+    font-weight: 400;
     font-style: normal;
-    font-size: 8em;
-    color: maroon;
+    font-style: normal;
+    font-size: 8vmin;
+    text-align: center;
+
+
+    color: #1e376d;
+    padding-bottom: 20px;
+    text-transform: lowercase;
+
+    padding-left: 50px;
+    max-width: 580px;
+    padding-top: 20px;
+
   }
+
+  & span{
+    font-family: "stolzl", sans-serif;
+    font-style: normal;
+    width: 100px;
+    font-size: 5vmin;
+    font-weight: 500;
+    text-transform: uppercase;
+    height: 100px;
+    margin: 10px;
+    margin-bottom: 70px;
+    padding: 10px 20px;
+    color: rgb(255, 237, 147);
+    background-image: radial-gradient(rgb(246, 156, 71), rgb(255, 38, 0));
+    text-shadow: orangered;
+    border-radius: 50%;
+    border: rgb(255, 255, 255) 3px solid;
+    box-shadow: white;
+  }
+
+  & span:nth-of-type(4) {
+    padding: 10px 25px;
+  }
+
+  @media screen and (max-width: 992px) {
+
+    .title div:nth-child(1) {
+      padding: 170px;
+      padding-left: 120px;
+    }
+
+    span {
+      margin: 0px;
+    }
+  }
+  
+.slots::before {
+  content: "";
+  width: 10vmin;
+  top: calc(100% + .1em);
+  height: 6vmin;
+  background-image: radial-gradient(
+        at 33% 33%,
+        rgb(213, 168, 168),
+        rgb(202, 41, 20) 40%
+      );
+  border-radius: 40% 40% 5px 5px;
+  border-bottom: black 20px solid;
 }
 
 .slots {
@@ -31,23 +155,54 @@
     height: 20vmin;
     width: 60vmin;
     border-radius: 50% 50% 0 0;
-    border: solid black 5vmin;
+    border: solid rgb(41, 41, 41) 5vmin;
+
+    background-image: radial-gradient(
+      at 0% 60%,
+      transparent 20%,
+      #04071d 70%
+    ),
+    linear-gradient(
+      -20deg in oklch,
+      transparent 15%,
+      #cf1111,
+      transparent 85%
+    ),
+    radial-gradient(
+      circle at 10% 40%,
+      transparent 00%,
+      black 60%
+    ),
+    
+    linear-gradient(
+      150deg in oklch,
+      #a600ff,
+      #dcce17,
+      #bb0551 90%,
+      transparent
+    );;
 
     & h2 {
-      font-family: "rafaella", sans-serif;
-      font-size: 4vmin;
+      font-family: "stolzl", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 5em;
+
+      color: transparent;
+      -webkit-text-stroke: 1px white;
     }
   }
 
   > div:last-of-type {
     position:relative;
     justify-content: space-between;
-    background-color: black;
+    background-image: linear-gradient( to top, rgb(79, 79, 79), rgb(41, 41, 41));
     width: 60vmin;
     padding: 0 5vmin;
     display: flex;
     height: 50vmin;
     align-items: center;
+    border-radius: 0px 0px 10px 10px;
 
     ul {
       width: 10vmin;
@@ -76,6 +231,17 @@
     }
   }
 
+  .stick::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 80%;
+    background-color: grey;
+    border-radius: 5px 0px 0px 5px;
+    width: 6vmin;
+    height: 3vmin;
+  }
+
   .handle {
     display: grid;
     justify-items: center;
@@ -90,7 +256,10 @@
     border-radius: 0px 10px 10px 0px;
     border: none;
 
-    background-image: linear-gradient(maroon, rgb(88, 1, 1));
+
+
+    background-color: transparent;
+    /* background-image: linear-gradient(rgb(5, 9, 35), rgb(49, 36, 138)); */
 
     & .stick {
       display: grid;
@@ -99,7 +268,7 @@
       padding: 0;
 
       width: 2.5vmin;
-      height: 15vmin;
+      height: 20vmin;
       background-image: linear-gradient(darkgrey, grey);
 
       position: absolute;
@@ -123,8 +292,8 @@
       border-radius: 50%;
       background-image: radial-gradient(
         at 33% 33%,
-        white,
-        rgb(202, 153, 20) 50%
+        rgb(213, 168, 168),
+        rgb(202, 41, 20) 50%
       );
 
       translate: 0 -2em;
