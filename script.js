@@ -84,7 +84,10 @@ function handleClick() {
     if (winningPerson) {
       showWinningPopover(winningPerson);
       // Add winning animation after a short delay
-      setTimeout(() => (document.body.style.animation = "light-animation .5s infinite"), 4000);
+      setTimeout(
+        () => (document.body.style.animation = "light-animation .5s infinite"),
+        4000
+      );
     }
   }, 1000);
 }
