@@ -142,6 +142,21 @@
   }
 }
 
+.popover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  z-index: 1000;
+  text-align: center;
+}
+
 @keyframes spin {
   from {
     transform: perspective(100vw) rotateX(0deg);

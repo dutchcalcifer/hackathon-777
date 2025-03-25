@@ -51,6 +51,8 @@ function addWomen(data) {
       li[i].children[0].src = `https://fdnd.directus.app/assets/${imgSRC}`;
     }
   });
+
+  return winningPerson;
 }
 
 // Function to add animation to the slots
@@ -62,12 +64,30 @@ function addAnimation() {
   });
 }
 
-// Handler for click event on the handle
 function handleClick() {
   addAnimation();
   setTimeout(function () {
-    addWomen(fetchedData);
+    const winningPerson = addWomen(fetchedData);
+    if (winningPerson) {
+      // Only show popover if not null
+      showWinningPopover(winningPerson);
+    }
   }, 1000);
+}
+
+function showWinningPopover(person) {
+  const winningPerson = fetchedData[person];
+
+  const popover = document.createElement("div");
+  popover.textContent = `${winningPerson.name} wins! 🎉`;
+  popover.classList.add("popover");
+
+  document.body.appendChild(popover);
+
+  // Remove popover after 3 seconds
+  setTimeout(() => {
+    document.body.removeChild(popover);
+  }, 3000);
 }
 
 // Add event listener for click on the handle to trigger handleClick function
