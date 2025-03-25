@@ -6,6 +6,14 @@
   padding: 0;
 }
 
+:root {
+  --polka-bg-image: radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%),
+    radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%);
+  --polka-bg-position: 0px 0px, 20px 20px;
+  --polka-bg-size: 40px 40px;
+  --polka-bg-color: rgb(34, 34, 34);
+}
+
 body {
   background-image: linear-gradient(rgb(32, 34, 119), rgb(1, 1, 33));
 }
@@ -46,16 +54,6 @@ body {
   clip-path: polygon(50% 24%, 100% 50%, 50% 82%, 0% 50%);
 }
 
-/* Use these custom variables... */
-:root {
-  --polka-bg-image: radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%),
-    radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%);
-  --polka-bg-position: 0px 0px, 20px 20px;
-  --polka-bg-size: 40px 40px;
-  --polka-bg-color: rgb(34, 34, 34);
-}
-
-/* ...or add this class to an element */
 .polka {
   background-image: radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%),
     radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%);
