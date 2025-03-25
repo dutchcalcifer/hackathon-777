@@ -40,7 +40,7 @@
   }
 
   > div:last-of-type {
-    position:relative;
+    position: relative;
     justify-content: space-between;
     background-color: black;
     width: 60vmin;
@@ -147,24 +147,28 @@
     transform: perspective(100vw) rotateX(0deg);
   }
   to {
-    transform: perspective(100vw) rotateX(-1080deg);
+    transform: perspective(100vw) rotateX(-2160deg);
   }
 }
 
 @keyframes spin-stick {
-  0%, 100% {
+  0%,
+  100% {
     transform: perspective(40em) rotateX(0deg);
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: perspective(40em) rotateX(-60deg);
   }
 }
 
 @keyframes spin-stick-after {
-  0%, 100% {
+  0%,
+  100% {
     transform: none;
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: rotateX(60deg);
   }
 }
