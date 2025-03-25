@@ -68,26 +68,34 @@ function handleClick() {
   addAnimation();
   setTimeout(function () {
     const winningPerson = addWomen(fetchedData);
+    console.log(winningPerson);
     if (winningPerson) {
-      // Only show popover if not null
       showWinningPopover(winningPerson);
     }
   }, 1000);
+
+  document.querySelector(".popover").style.display = "none";
 }
 
 function showWinningPopover(person) {
   const winningPerson = fetchedData[person];
 
-  const popover = document.createElement("div");
-  popover.textContent = `${winningPerson.name} wins! 🎉`;
-  popover.classList.add("popover");
+  const popover = document.querySelector(".popover");
 
-  document.body.appendChild(popover);
+  // Fill the popover with data
+  document.getElementById("image").src =
+    `https://fdnd.directus.app/assets/${winningPerson.image}` || "#";
+  document.getElementById("name").textContent = winningPerson.name || "none";
+  document.getElementById("tagline").textContent =
+    winningPerson.tagline || "none";
+  document.getElementById("work").textContent = winningPerson.work || "none";
 
-  // Remove popover after 3 seconds
-  setTimeout(() => {
-    document.body.removeChild(popover);
-  }, 3000);
+  document.getElementById("github").href = winningPerson.github || "#";
+  document.getElementById("website").href = winningPerson.website || "#";
+  document.getElementById("codepen").href = winningPerson.codepen || "#";
+
+  // Make the popover visible
+  popover.style.display = "block";
 }
 
 // Add event listener for click on the handle to trigger handleClick function

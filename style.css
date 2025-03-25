@@ -143,6 +143,10 @@
 }
 
 .popover {
+  display: none;
+  border-radius: 5px;
+  border: 1px solid gray;
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -150,11 +154,41 @@
   padding: 20px;
   background: #000;
   color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   font-size: 18px;
-  z-index: 1000;
-  text-align: center;
+
+  h3 {
+    text-align: center;
+  }
+
+  > div {
+    display: flex;
+    gap: 1rem;
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      > p {
+        border-bottom: 1px solid gray;
+      }
+
+      > * {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
+.popover img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.popover a img {
+  width: 30px;
+  height: 30px;
 }
 
 @keyframes spin {
