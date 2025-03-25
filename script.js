@@ -68,7 +68,6 @@ function handleClick() {
   addAnimation();
   setTimeout(function () {
     const winningPerson = addWomen(fetchedData);
-    console.log(winningPerson);
     if (winningPerson) {
       showWinningPopover(winningPerson);
     }
@@ -100,3 +99,9 @@ function showWinningPopover(person) {
 
 // Add event listener for click on the handle to trigger handleClick function
 document.querySelector(".handle").addEventListener("click", handleClick);
+
+document.addEventListener("click", function () {
+  let audio = document.getElementById("soundtrack");
+  audio.muted = false;
+  audio.play();
+});
