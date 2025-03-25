@@ -7,9 +7,12 @@
 }
 
 body {
-  /* background-image: linear-gradient( to top, #f5f5f5 0 80%, rgb(255, 255, 255) 80% 100%); */
-  background-repeat: no-repeat;
   background-image: linear-gradient(rgb(32, 34, 119), rgb(1, 1, 33));
+}
+
+@font-face {
+  font-family: "lobster";
+  src: url("./fonts/Lobster-Regular.ttf") format("truetype");
 }
 
 .title {
@@ -183,18 +186,20 @@ body {
     );;
 
     & h2 {
-      font-family: "stolzl", sans-serif;
+/*       font-family: "stolzl", sans-serif;
       font-weight: 400;
       font-style: normal;
       font-size: 5em;
 
       color: transparent;
-      -webkit-text-stroke: 1px white;
+      -webkit-text-stroke: 1px white; */
+      font-family: "lobster", sans-serif;
+      font-size: 7vmin;
     }
   }
 
   > div:last-of-type {
-    position:relative;
+    position: relative;
     justify-content: space-between;
     background-image: linear-gradient( to top, rgb(79, 79, 79), rgb(41, 41, 41));
     width: 60vmin;
@@ -311,29 +316,82 @@ body {
   }
 }
 
+.popover {
+  display: none;
+  border-radius: 5px;
+  border: 1px solid gray;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #000;
+  color: #fff;
+  font-size: 18px;
+
+  h3 {
+    text-align: center;
+  }
+
+  > div {
+    display: flex;
+    gap: 1rem;
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      > p {
+        border-bottom: 1px solid gray;
+      }
+
+      > * {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
+.popover img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.popover a img {
+  width: 30px;
+  height: 30px;
+}
+
 @keyframes spin {
   from {
     transform: perspective(100vw) rotateX(0deg);
   }
   to {
-    transform: perspective(100vw) rotateX(-1080deg);
+    transform: perspective(100vw) rotateX(-2160deg);
   }
 }
 
 @keyframes spin-stick {
-  0%, 100% {
+  0%,
+  100% {
     transform: perspective(40em) rotateX(0deg);
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: perspective(40em) rotateX(-60deg);
   }
 }
 
 @keyframes spin-stick-after {
-  0%, 100% {
+  0%,
+  100% {
     transform: none;
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: rotateX(60deg);
   }
 }
