@@ -87,9 +87,6 @@ function handleClick() {
       setTimeout(() => (document.body.style.animation = "light-animation .5s infinite"), 4000);
     }
   }, 1000);
-
-  // Hide the popover
-  document.querySelector(".popover").style.display = "none";
 }
 
 // Function to show the winning popover
@@ -140,4 +137,12 @@ document.addEventListener("click", function () {
   let audio = document.getElementById("soundtrack");
   audio.muted = false;
   audio.play();
+});
+
+// Add event listener for keydown event
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    // Hide the popover
+    document.querySelector(".popover").style.display = "none";
+  }
 });
