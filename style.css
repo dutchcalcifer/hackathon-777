@@ -7,7 +7,13 @@
 }
 
 body {
-  background-image: linear-gradient(rgb(32, 34, 119), rgb(1, 1, 33));
+  --light-size: 20%;
+  --fade-out: calc(var(--light-size) + 2%);
+  background-image: 
+    radial-gradient(rgb(255, 255, 255) var(--light-size), transparent var(--fade-out));
+  background-position: 5em 5em;
+  background-size: 48px 48px;
+  background-color: rgb(204, 0, 0);
 }
 
 @font-face {
@@ -346,5 +352,14 @@ h1 {
   40%,
   60% {
     transform: rotateX(60deg);
+  }
+}
+
+@keyframes light-animation {
+  0%, 100% {
+    --light-size: 20%;
+  }
+  50% {
+    --light-size: 25%;
   }
 }

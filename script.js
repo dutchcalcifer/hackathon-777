@@ -72,6 +72,8 @@ function addAnimation() {
 
 // Function to handle the click event on the handle
 function handleClick() {
+  // Remove animation from body
+  document.body.style.animation = "none";
   // Add the animation to the slots
   addAnimation();
 
@@ -81,6 +83,8 @@ function handleClick() {
 
     if (winningPerson) {
       showWinningPopover(winningPerson);
+      // Add winning animation after a short delay
+      setTimeout(() => (document.body.style.animation = "light-animation .5s infinite"), 4000);
     }
   }, 1000);
 
