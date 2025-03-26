@@ -7,6 +7,8 @@
 }
 
 body {
+  display: grid;
+  justify-content: center;
   background-image: linear-gradient(rgb(32, 34, 119), rgb(1, 1, 33));
 }
 
@@ -19,99 +21,97 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50vw;
+  height: 280px;  
+
+  div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    clip-path: polygon(50% 24%, 100% 50%, 50% 82%, 0% 50%);
+    padding: 100px;
+    padding-top: 150px;
+    margin-bottom: 20px;
+    height: 100;
+    width: 100%;
+
+    h1 {
+      font-family: "adventures-unlimited", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-style: normal;
+      font-size: 8vmin;
+      text-align: center;
+      color: #1e376d;
+      /* padding-bottom: 20px; */
+      text-transform: lowercase;
+      /* padding-left: 50px; */
+      max-width: 50%;
+      /* padding-top: 20px; */
+
+      & span {
+        font-family: "stolzl", sans-serif;
+        font-style: normal;
+        width: 100px;
+        font-size: 3vmin;
+        font-weight: 500;
+        text-transform: uppercase;
+        height: 100px;
+        /* margin: 10px; */
+        /* margin-bottom: 70px; */
+        padding: 10px 20px;
+        color: rgb(255, 237, 147);
+        background-image: radial-gradient(rgb(246, 156, 71), rgb(255, 38, 0));
+        text-shadow: orangered;
+        border-radius: 50%;
+        border: rgb(255, 255, 255) 3px solid;
+        box-shadow: white;
+      }
+      
+      & span:nth-of-type(4) {
+        padding: 10px 25px;
+      }
+    }
+  }
+
 }
 
-.title div:nth-child(1) {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  clip-path: polygon(50% 24%, 100% 50%, 50% 82%, 0% 50%);
-  padding: 100px;
-  padding-top: 150px;
-  margin-bottom: 20px;
-  margin-top: 0px;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 400px;
-  width: 90vmin;
+@media screen and (max-width: 1200px) {
+
+  h1 {
+    max-width: 80%;
+    padding-bottom: 30px;
+  }
+
+  h1 span {
+    margin: 0;
+  }
+
+  .title {
+    width: 90vw;
+  }
 }
 
-.title div:nth-child(2) {
-  margin-top: -20px;
-  position: absolute;
-  display: inline-block;
-  z-index: -20;
-  width: 95vmin;
-  height: 60%;
-  clip-path: polygon(50% 24%, 100% 50%, 50% 82%, 0% 50%);
-}
+@media screen and (max-width: 600px) {
 
-/* Use these custom variables... */
-:root {
-  --polka-bg-image: radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%),
-    radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%);
-  --polka-bg-position: 0px 0px, 20px 20px;
-  --polka-bg-size: 40px 40px;
-  --polka-bg-color: rgb(34, 34, 34);
-}
+  h1 {
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+  h1 span {
+    margin: 0;
+  }
 
-/* ...or add this class to an element */
-.polka {
-  background-image: radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%),
-    radial-gradient(rgb(255, 255, 255) 10.4%, transparent 10.4%);
-  background-position: 0px 0px, 20px 20px;
-  background-size: 40px 40px;
-  background-color: rgb(34, 34, 34);
-}
+  .title {
+    width: 90vw;
+  }
 
-h1 {
-  font-family: "adventures-unlimited", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-style: normal;
-  font-size: 8vmin;
-  text-align: center;
-  color: #1e376d;
-  padding-bottom: 20px;
-  text-transform: lowercase;
-  padding-left: 50px;
-  max-width: 580px;
-  padding-top: 20px;
-}
-
-& span {
-  font-family: "stolzl", sans-serif;
-  font-style: normal;
-  width: 100px;
-  font-size: 5vmin;
-  font-weight: 500;
-  text-transform: uppercase;
-  height: 100px;
-  margin: 10px;
-  margin-bottom: 70px;
-  padding: 10px 20px;
-  color: rgb(255, 237, 147);
-  background-image: radial-gradient(rgb(246, 156, 71), rgb(255, 38, 0));
-  text-shadow: orangered;
-  border-radius: 50%;
-  border: rgb(255, 255, 255) 3px solid;
-  box-shadow: white;
-}
-
-& span:nth-of-type(4) {
-  padding: 10px 25px;
-}
-
-@media screen and (max-width: 992px) {
   .title div:nth-child(1) {
-    padding: 170px;
-    padding-left: 120px;
-  }
-
-  span {
-    margin: 0px;
+    width: auto;
   }
 }
+
 
 .slots::before {
   content: "";
