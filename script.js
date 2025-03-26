@@ -121,6 +121,11 @@ function showWinningPopover(person) {
 
       case "a":
         element.href = value || "#";
+        !value ? element.classList.add("inactive-link") : element.classList.remove("inactive-link");
+        break;
+
+      case "p":
+        element.innerHTML = `<span>${key}: </span>${value}`
         break;
 
       default:
