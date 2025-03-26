@@ -8,7 +8,7 @@ fetchData("https://fdnd.directus.app/items/women_in_tech").then((data) => {
 function addWomen(data) {
   const getWinningPerson = () => {
     // Randomly decide if there should be a winning person
-    const isWinning = Math.random() < 0.5;
+    const isWinning = Math.random() < 1;
     // Return the winning person if there should be one
     return isWinning ? getRandomPerson(data.length) : null;
   };
@@ -72,6 +72,8 @@ function addAnimation() {
 
 // Function to handle the click event on the handle
 function handleClick() {
+  // Remove animation from body
+  document.body.style.animation = "none";
   // Add the animation to the slots
   addAnimation();
 
@@ -81,6 +83,11 @@ function handleClick() {
 
     if (winningPerson) {
       showWinningPopover(winningPerson);
+      // Add winning animation after a short delay
+      setTimeout(
+        () => (document.body.style.animation = "light-animation .5s infinite"),
+        4000
+      );
     }
   }, 1000);
 }
@@ -114,10 +121,17 @@ function showWinningPopover(person) {
 
       case "a":
         element.href = value || "#";
+        !value
+          ? element.classList.add("inactive-link")
+          : element.classList.remove("inactive-link");
+        break;
+
+      case "p":
+        element.innerHTML = `<span>${key}: </span>${value}`;
         break;
 
       default:
-        element.textContent = value || "none";
+        element.textContent = value === null ? "" : value;
     }
   }
 
