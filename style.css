@@ -371,7 +371,7 @@ h1 {
       flex-direction: column;
 
       > p {
-        border-bottom: 1px solid gray;
+        border-bottom: 2px dotted #21271c;
       }
 
       > * {
