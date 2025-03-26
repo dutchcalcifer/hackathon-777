@@ -12,13 +12,13 @@
   --polka-bg-position: 0px 0px, 20px 20px;
   --polka-bg-size: 40px 40px;
   --polka-bg-color: rgb(34, 34, 34);
+  --light-size: 0%;
+  --fade-out: calc(var(--light-size) + 2%);
 }
 
 body {
-  --light-size: 20%;
-  --fade-out: calc(var(--light-size) + 2%);
   background-image: radial-gradient(
-    rgb(255, 255, 255) var(--light-size),
+    rgba(0, 0, 0, 0.3) var(--light-size),
     transparent var(--fade-out)
   );
   background-position: 5em 5em;
@@ -28,12 +28,17 @@ body {
 
 @font-face {
   font-family: "lobster";
-  src: url("./fonts/Lobster-Regular.ttf") format("truetype");
+  src: url("./fonts/lobster.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "micrenc";
   src: url("./fonts/micrenc.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "optima";
+  src: url("./fonts/optima.ttf") format("truetype");
 }
 
 .title {
@@ -193,6 +198,11 @@ h1 {
       height: 10vmin;
       transform-style: preserve-3d;
       transform: perspective(100vw);
+
+      &::before {
+        background-color: #1e376d;
+        content: "";
+      }
     }
 
     li {
@@ -295,6 +305,7 @@ h1 {
   font-size: 18px;
   background-color: #e1eedf;
   opacity: 1;
+  font-family: "optima", sans-serif;
   background-image: linear-gradient(
       30deg,
       #c8d5c7 12%,
@@ -423,7 +434,7 @@ h1 {
 @keyframes light-animation {
   0%,
   100% {
-    --light-size: 20%;
+    --light-size: 0%;
   }
   50% {
     --light-size: 25%;
