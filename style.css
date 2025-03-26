@@ -147,7 +147,7 @@ body {
     rgb(202, 41, 20) 40%
   );
   border-radius: 40% 40% 5px 5px;
-  border-bottom: black 20px solid;
+  border-bottom: black 1em solid;
 }
 
 .slots {
@@ -247,6 +247,7 @@ body {
   }
 
   .handle {
+    all: unset;
     display: grid;
     justify-items: center;
     align-items: center;
@@ -264,10 +265,12 @@ body {
       display: grid;
       justify-items: center;
       padding: 0;
+
+      anchor-name: --anchor-knop;
+
       width: 2.5vmin;
       height: 20vmin;
       background-image: linear-gradient(darkgrey, grey);
-      position: absolute;
       transform-origin: bottom;
       transform: perspective(40em) rotateX(0deg);
       transform-style: preserve-3d;
@@ -275,19 +278,19 @@ body {
       animation: spin-stick 1s forwards;
     }
 
-    & .stick::after {
-      content: "";
+    & .bol {
       position: absolute;
-      top: 0.5vmin;
-      width: 5vmin;
-      height: 5vmin;
+      position-anchor: --anchor-knop;
+      position-area: top;
+
+      width: 7vmin;
+      height: 7vmin;
       border-radius: 50%;
       background-image: radial-gradient(
         at 33% 33%,
         rgb(213, 168, 168),
         rgb(202, 41, 20) 50%
       );
-      translate: 0 -2em;
       animation: spin-stick-after 1s forwards;
     }
   }
@@ -296,7 +299,7 @@ body {
     animation: none;
   }
 
-  & .handle:active .stick::after {
+  & .handle:active .bol {
     animation: none;
   }
 }
@@ -446,7 +449,7 @@ body {
   }
   40%,
   60% {
-    transform: rotateX(60deg);
+    transform: translateY(4em) scale(1.2);
   }
 }
 
