@@ -8,7 +8,7 @@ fetchData("https://fdnd.directus.app/items/women_in_tech").then((data) => {
 function addWomen(data) {
   const getWinningPerson = () => {
     // Randomly decide if there should be a winning person
-    const isWinning = Math.random() < 1;
+    const isWinning = Math.random() < 0.5;
     // Return the winning person if there should be one
     return isWinning ? getRandomPerson(data.length) : null;
   };
@@ -85,7 +85,7 @@ function handleClick() {
       showWinningPopover(winningPerson);
       // Add winning animation after a short delay
       setTimeout(
-        () => (document.body.style.animation = "light-animation .5s infinite"),
+        () => (document.body.style.animation = "light-animation 1s infinite"),
         4000
       );
     }
